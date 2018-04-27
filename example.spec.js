@@ -1,4 +1,4 @@
-const fbClient = require('../utils/facebook-client.js')
+const fbClient = require('./lib/client-wrapper.js')
 const expect = require('chai').expect
 
 

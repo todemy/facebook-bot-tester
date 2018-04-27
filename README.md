@@ -18,7 +18,7 @@ npm run setup
 
 Grab your [ThreadID](https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#sendMessage) then start testing! 
 ```javascript
-const fbClient = require('../utils/facebook-client.js')
+const fbClient = require('./lib/client-wrapper.js')
 const expect = require('chai').expect
 
 let fb
