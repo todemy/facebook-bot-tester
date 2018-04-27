@@ -1,0 +1,25 @@
+{
+    "name": "Facebook end to end testing",
+    "version": "1.0.0",
+    "description": "Example for testing facebook bots end to end",
+    "main": "index.js",
+    "scripts": {
+      "test": "mocha --compilers js:babel-core/register ./student-app/*.spec.js",
+      "setup": "node set-up-state.js"
+    },
+    "author": "Arnold Agus",
+    "license": "ISC",
+    "dependencies": {
+      "facebook-chat-api": "^1.5.1"
+    },
+    "devDependencies": {
+      "@types/node": "^10.0.0",
+      "babel": "^6.23.0",
+      "babel-core": "^6.26.3",
+      "babel-preset-es2015": "^6.24.1",
+      "chai": "^4.1.2",
+      "mocha": "^5.1.1",
+      "typescript": "^2.8.3"
+    }
+  }
+  
