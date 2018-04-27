@@ -16,7 +16,43 @@ export FB_BOT_PASSWORD=<password>
 npm run setup
 ```
 
-Next View the example.spec.js file for the workflow integration and run mocha
+Grab your [ThreadID](https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#sendMessage) then start testing! 
+```javascript
+const fbClient = require('../utils/facebook-client.js')
+const expect = require('chai').expect
+
+let fb
+describe('Initial greeting', function() {
+  // Bot testing can have quite some delay.
+  this.timeout(20000)
+
+  /*
+  Set-up initial client.
+  */
+  before(async function() {
+    this.timeout(6000)
+    fb = await fbClient.setUpFbWrapper()
+  })
+
+  /*
+  Removes all messages from the client stack before each test
+  */
+  beforeEach(() => {
+    fbClient.cleanStack()
+  })
+
+  it('should respond with initial greeting', async () => {
+    /*
+    Need to grab and determine threadID from your own app
+    */
+    fb.sendMessage("greetings!", fbClient.threadId)
+
+    const response = await fbClient.grabMessages()
+
+    expect(response.length).to.equal(1)
+  })
+})
+```
 
 ```
 // Note this will run against live facebook bot credentials
